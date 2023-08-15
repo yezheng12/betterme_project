@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterMe</title>
+    <link rel="icon" type="images/jpg" href="../static/uploads/images3.jpg" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    {{bootstrap.load_css()}}
+</head>
+<body >
+    
+        <nav class="navbar navbar-light bg-secondary ">
+            <div class="navbar-brand">
+                <div class="m-3">
+                    <img src="../static/uploads/images3.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+                    <span class="fs-5 fw-bold text-light" >BetterMe</span>
+                </div>
+            </div>
+            <div>
+                <div class="m-3 " >
+                    <a href="/login" style="text-decoration: none;" class="text-light">LOGIN</a> 
+                    <a href="/register" style="text-decoration: none;" class="text-light">REGISTER</a>
+                </div>
+            </div>
+
+      </nav>
+      <div class="bg-dark">
+        <div class="pt-5 text-light font-weight-bold">
+            <!-- The video -->
+            <h1 class="text-center">JOIN US, BE A BETTER YOU !</h1>
+            <h4 class="text-center">Goal setting and goal management application for your personal development</h4>
+            <video autoplay muted loop id="myVideo">
+            <source src="../static/uploads/homevideo2.mov" type="video/mp4">
+            </video>
+        </div>
+
+      </div>
+
+    
+    
+</body>
+</html>

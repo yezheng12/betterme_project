@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="images/jpg" href="../static/uploads/images3.jpg" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    {{bootstrap.load_css()}}
+</head>
+<body>
+    <div class="bg-image" style="background-image:url('../static/uploads/bg7.jpeg');background-repeat:no-repeat; height:200vh;">
+        <form action="/login_process" method="post" class="mx-3" >
+            <h1 class="text-dark text-center">Login</h1>
+            <a href="/" class="btn btn-dark">HOME</a>
+            <div>
+                {% with messages = get_flashed_messages(category_filter = ['login']) %}
+                    {% if messages %}
+                    <div class="alert alert-danger mt-3" role="alert">
+                        <!-- <strong>Flash AHHHHHHH!!!!</strong> -->
+                            {% for message in messages %}
+                                <li>{{message}}</li>
+                            {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="form-group text-light">
+                <label for="email" class="text-secondary">Email:</label>
+                <input type="text" name="email" class="form-control">
+                
+            </div>
+            <div class="form-group text-light">
+                <label for="password" class="text-secondary">Password:</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <input type="submit" value="Login" class="btn btn-dark my-2">
+        </form>
+    </div>
+
+</body>
+</html>
+<!-- class="bg-dark mt-2 p-3 col-5" -->

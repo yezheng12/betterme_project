@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterMe</title>
+    <link rel="icon" type="images/jpg" href="../static/uploads/images3.jpg" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+    {{bootstrap.load_css()}}
+</head>
+<body>
+    <div class="bg-image" style="background-image:url('../static/uploads/bg7.jpeg');background-repeat:no-repeat; height:200vh;">
+        <form action="/register/process" class="mx-3" method="post">
+            <h1 class="text-dark text-center">Register</h1>
+            <a href="/" class="btn btn-dark">HOME</a>
+            <div class="text-white">
+                {% with messages=get_flashed_messages(category_filter = ['register']) %}
+                    {% if messages %}
+                        <div class="alert alert-danger mt-3" role="alert">
+                            <!-- <strong>Flash AHHHHHHH!!!!</strong> -->
+                                {% for message in messages %}
+                                <li>{{message}}</li>
+                                {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="form-group text-light">
+                <label for="first_name" class="text-secondary">First Name:</label>
+                <input type="text" name="first_name" class="form-control">
+            </div>
+            <div class="form-group text-light">
+                <label for="last_name" class="text-secondary">Last Name:</label>
+                <input type="text" name="last_name" class="form-control">
+            </div>
+            <div class="form-group text-light">
+                <label for="email" class="text-secondary">Email:</label>
+                <input type="text" name="email" class="form-control">
+            </div>
+            <div class="form-group text-light">
+                <label for="password" class="text-secondary">Password:</label>
+                <input type="password" name="password" class="form-control">
+            </div>
+            <div class="form-group text-light">
+                <label for="confirm_password" class="text-secondary">Confirm Password:</label>
+                <input type="password" name="confirm_password" class="form-control">
+            </div>
+            <input type="submit" value="Register" class="btn btn-dark my-2">
+            
+        </form>
+            
+
+        </div>
+
+</body>
+</html>
