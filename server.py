@@ -6,4 +6,4 @@ from flask_app.controllers import users,goals
 
 if __name__ == "__main__":
     Bootstrap5(app)
-    app.run(debug=True, host="localhost", port=5000)
+    app.run(debug=True, host="localhost", port=5001)

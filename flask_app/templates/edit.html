@@ -4,106 +4,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BetterMe</title>
-    <link rel="icon" type="images/jpg" href="../static/uploads/images3.jpg" />
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
-    {{bootstrap.load_css()}}
+    <link rel="icon" type="images/jpg" href="{{ url_for('static', filename='images3.jpg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {{ bootstrap.load_css() }}
+    <style>
+        .light-grey-input {
+            color: lightgrey;
+        }
+    </style>
 </head>
 <body>
-    <div class="bg-image" style="background-image:url('../static/uploads/images4.jpg');background-repeat:no-repeat; height:200vh;">
+    <div class="bg-image" style="background-image:url('{{ url_for('static', filename='uploads/bg7.jpeg') }}');background-repeat:no-repeat; height:200vh;">
         <div class="container-fluid">
             <div class="row flex-nowrap">
                 <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
                     <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-light min-vh-100">
-                            <span class="fs-5 d-none d-sm-inline">Menu</span>
-                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                <li class="nav-item">
-                                    <a href="/dashboard" class="nav-link align-middle px-0 link-secondary">
-                                        <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Dashboard</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/create" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
-                                        <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">New Goal</span> </a>
-                                </li>
-                                <li>
-                                    <a href="/category/shopping" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
-                                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Shopping</span></a>
-                                </li>
-                                <li>
-                                    <a href="/category/health" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary ">
-                                        <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Health</span></a>
-                                </li>
-                                <li>
-                                    <a href="/category/working" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
-                                        <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Working</span> </a>
-                                </li>
-                                <li>
-                                    <a href="/logout" class="nav-link px-0 align-middle link-secondary">
-                                        <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Log Out</span> </a>
-                                </li>
-                            </ul>
-                        <hr>
-                    <div class="dropdown pb-4">
-                        <a href="/dashboard/dropdown" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1">{{session['first_name']}}</span>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                            <li><a class="dropdown-item" href="#">New project...</a></li>
-                            <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Profile</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
+                        <span class="fs-5 d-none d-sm-inline">Menu</span>
+                        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                            <li class="nav-item">
+                                <a href="/dashboard" class="nav-link align-middle px-0 link-secondary">
+                                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Dashboard</span>
+                                </a>
                             </li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li>
+                                <a href="/create" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
+                                    <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">New Goal</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/category/shopping" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
+                                    <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Shopping</span></a>
+                            </li>
+                            <li>
+                                <a href="/category/health" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
+                                    <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Health</span></a>
+                            </li>
+                            <li>
+                                <a href="/category/working" data-bs-toggle="collapse" class="nav-link px-0 align-middle link-secondary">
+                                    <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Working</span> </a>
+                            </li>
+                            <li>
+                                <a href="/logout" class="nav-link px-0 align-middle link-secondary">
+                                    <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline" id="nav_link">Log Out</span> </a>
+                            </li>
                         </ul>
+                        <hr>
+                        <div class="dropdown pb-4">
+                            <a href="/dashboard/dropdown" class="d-flex align-items-center text-light text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                                <span class="d-none d-sm-inline mx-1">{{ session['first_name'] }}</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                                <li><a class="dropdown-item" href="#">New project...</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col py-3">
-                <h1>Edit Goal</h1>
-                <form action="/edit_process/{{goal_id}}" class="d-flex justify-content-around" method="post">
-                    {% with messages = get_flashed_messages(category_filter = ['goal']) %}
-                        {% if messages %}
-                            <div class="alert alert-danger mt-3" role="alert">
-                                {% for message in messages %}
-                                <li>{{message}}</li>
-                                {% endfor %}
-                            </div>              
-                        {% endif %}
-                    {% endwith %}
-                    <div>
-                        <div class="form-group">
-                            <label for="title">Title</label>
-                            <input type="text" name="title" class="form-control">
+                <div class="col py-3">
+                    <h1>Edit Goal</h1>
+                    <form action="/edit_process/{{ goal.id }}" class="d-flex justify-content-around" method="post" id="goal-form">
+                        {% with messages = get_flashed_messages(category_filter=['goal']) %}
+                            {% if messages %}
+                                <div class="alert alert-danger mt-3" role="alert">
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endwith %}
+                        <div>
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input type="text" name="title" class="form-control light-grey-input" value="{{ goal.title }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="plan">Plan</label>
+                                <textarea name="plan" id="plan" cols="40" rows="10" class="form-control light-grey-input">{{ goal.plan }}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select name="category" id="category" class="form-control">
+                                    <option value="">-----</option>
+                                    <option value="shopping" {% if goal.category == 'shopping' %}selected{% endif %}>Shopping</option>
+                                    <option value="health" {% if goal.category == 'health' %}selected{% endif %}>Health</option>
+                                    <option value="working" {% if goal.category == 'working' %}selected{% endif %}>Working</option>
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <label for="achieved" class="form-check-label">Achieved</label>
+                                <input type="checkbox" name="achieved" class="form-check-input" id="achieved-checkbox" {% if goal.achieved %}checked{% endif %}>
+                            </div>
+                            <input class="btn btn-light m-3" type="submit" value="Update">
                         </div>
-                        <div class="form-group">
-                            <label for="plan">Plan</label>
-                            <textarea name="plan" id="plan" cols="40" rows="10" class="form-control"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="category">Category</label>
-                            <select name="category" id="category" class="form-control">
-                                <option value="">-----</option>
-                                <option value="shopping">Shopping</option>
-                                <option value="health">Health</option>
-                                <option value="working">Working</option>
-                            </select>
-                        <div class="form-check">
-                            <label for="achieved" class="form-check-label">Achieved</label>
-                            <input type="checkbox" name="achieved" class="form-check-input">
-                        </div>
-                        </div>
-                        <input class="btn btn-light m-3"   type="submit" value="Create">
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    </div>
-
-        
-    </div>
-
 </body>
 </html>

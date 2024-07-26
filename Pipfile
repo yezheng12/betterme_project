@@ -8,8 +8,9 @@ flask = "*"
 pymysql = "*"
 bootstrap-flask = "*"
 flask-bcrypt = "*"
+flask-bootstrap = "*"
 
 [dev-packages]
 
 [requires]
-python_version = "3.8.10"
+python_version = "3.11"

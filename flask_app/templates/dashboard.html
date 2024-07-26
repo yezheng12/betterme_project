@@ -9,12 +9,12 @@
     {{bootstrap.load_css()}}
 </head>
 <body>
-    <div class="bg-image" style="background-image:url('../static/uploads/bg7.jpeg');">
+    <div class="bg-image" style="background-image:url('../static/uploads/bg7.jpeg');background-repeat:no-repeat; height:200vh;">
     <div class="container-fluid">
         <div class="row flex-nowrap">
             <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
-                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 min-vh-100">
-                        <span class="fs-5 d-none d-sm-inline text-light">Menu</span>
+                <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-light min-vh-100">
+                    <span class="fs-5 d-none d-sm-inline">Menu</span>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link align-middle px-0 link-secondary">
@@ -61,29 +61,22 @@
                 </div>
             </div>
             <div class="col py-3">
-                <div class="d-flex justify-content-between">
-                <h1>{{session['first_name']}}'s Achievement</h1>
-                <img src="../static/uploads/image_achievement2.jpeg" alt="hugenerd" width="70" height="50" class="rounded-circle">
-                </div>
+                <h1>{{ session['first_name'] }}'s Achievements</h1>
                 <table class="table">
                     <thead>
                         <th>Title</th>
                         <th>Plan</th>
                         <th>Create Date</th>
-                        <th>Achieved</th>
                         <th>Action</th>
                     </thead>
                     <tbody>
                         {% for goal in goals_list %}
-                        {% if goal.achieved == 1 %}
+                        {% if goal.achieved %}
                         <tr>
-                            <td>{{goal.title}}</td>
-                            <td>{{goal.plan}}</td>
-                            <td>{{goal.created_at}}</td>
-                            <td><img src="../static/uploads/images_achievement.jpeg" alt="hugenerd" width="60" height="45" class="rounded-circle"></td>
-                        
-                            <td><a class="btn btn-light" href="/delete/{{goal.id}}">Delete</a></td>
-                            
+                            <td>{{ goal.title }}</td>
+                            <td>{{ goal.plan }}</td>
+                            <td>{{ goal.created_at }}</td>
+                            <td><a class="btn btn-light" href="/delete/{{ goal.id }}">Delete</a></td>
                         </tr>
                         {% endif %}
                         {% endfor %}
@@ -92,10 +85,5 @@
             </div>
         </div>
     </div>
-    
-
-        
-
-
 </body>
 </html>
